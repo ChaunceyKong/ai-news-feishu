@@ -1,57 +1,64 @@
 # RSS源定义
-# 支持多种AI资讯来源
+# 所有RSS源已验证可用 (2026-03-25)
 
 sources:
   # 英文AI资讯
-  - name: "Google AI Blog"
-    url: "https://ai.googleblog.com/feeds/posts/default"
+  - name: "TechCrunch AI"
+    url: "https://techcrunch.com/category/artificial-intelligence/feed/"
     category: "AI"
     enabled: true
     max_articles: 10
     language: "en"
-    description: "Google AI官方博客"
+    description: "TechCrunch AI板块"
 
-  - name: "OpenAI Blog"
-    url: "https://openai.com/blog/rss/"
-    category: "AI"
-    enabled: true
-    max_articles: 5
-    language: "en"
-    description: "OpenAI官方博客"
-
-  - name: "MIT Technology Review AI"
-    url: "https://www.technologyreview.com/topic/artificial-intelligence/feed/"
+  - name: "The Verge AI"
+    url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
     category: "AI"
     enabled: true
     max_articles: 10
     language: "en"
-    description: "MIT科技评论AI板块"
+    description: "The Verge AI板块"
+
+  - name: "VentureBeat"
+    url: "https://venturebeat.com/feed/"
+    category: "AI"
+    enabled: true
+    max_articles: 10
+    language: "en"
+    description: "VentureBeat科技资讯（AI相关丰富）"
+
+  - name: "Wired AI"
+    url: "https://www.wired.com/feed/tag/ai/latest/rss"
+    category: "AI"
+    enabled: true
+    max_articles: 10
+    language: "en"
+    description: "Wired AI标签文章"
+
+  - name: "The Decoder"
+    url: "https://the-decoder.com/feed/"
+    category: "AI"
+    enabled: true
+    max_articles: 10
+    language: "en"
+    description: "专注AI新闻的科技媒体"
 
   # 中文AI资讯
-  - name: "机器之心"
-    url: "https://www.jiqizhixin.com/rss"
-    category: "AI"
+  - name: "36氪"
+    url: "https://36kr.com/feed"
+    category: "Tech"
     enabled: true
     max_articles: 15
     language: "zh"
-    description: "机器之心 - 人工智能垂直媒体"
+    description: "36氪科技创业资讯（AI相关内容丰富）"
 
-  - name: "AI科技大本营"
-    url: "https://blog.csdn.net/dQCFKyQDXYm3F8rB0/article/rss"
-    category: "AI"
-    enabled: false  # 默认禁用，需要确认实际RSS地址
+  - name: "Readhub"
+    url: "https://readhub.cn/rss"
+    category: "Tech"
+    enabled: true
     max_articles: 10
     language: "zh"
-    description: "AI科技大本营"
-
-  # 其他科技资讯
-  - name: "Hacker News AI"
-    url: "https://news.ycombinator.com/rss?q=AI"
-    category: "Tech"
-    enabled: false
-    max_articles: 10
-    language: "en"
-    description: "Hacker News AI相关"
+    description: "每日科技资讯聚合"
 
 # 分类定义
 categories:
