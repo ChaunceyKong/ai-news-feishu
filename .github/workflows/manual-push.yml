@@ -67,14 +67,25 @@ jobs:
         restore-keys: |
           news-db-${{ runner.os }}
 
-    - name: Run news push
+    - name: Test configuration
       env:
-        # 传递GitHub Secrets作为环境变量
         LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
         LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
         LARK_RECEIVER_ID: ${{ secrets.LARK_RECEIVER_ID }}
       run: |
-        # 构建命令行参数
+        # 验证Secrets是否配置（不输出具体值）
+        echo "LARK_APP_ID: ${LARK_APP_ID:+configured}"
+        echo "LARK_APP_SECRET: ${LARK_APP_SECRET:+configured}"
+        echo "LARK_RECEIVER_ID: ${LARK_RECEIVER_ID:+configured}"
+        # 测试配置
+        python -m src test-config
+
+    - name: Run news push
+      env:
+        LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+        LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+        LARK_RECEIVER_ID: ${{ secrets.LARK_RECEIVER_ID }}
+      run: |
         CMD_ARGS="run"
         if [ "${{ github.event.inputs.dry-run }}" = "true" ]; then
           CMD_ARGS="$CMD_ARGS --dry-run"
@@ -82,7 +93,6 @@ jobs:
         if [ -n "${{ github.event.inputs.message-type }}" ]; then
           CMD_ARGS="$CMD_ARGS --message-type ${{ github.event.inputs.message-type }}"
         fi
-        # 运行新闻推送（作为模块运行，确保相对导入正常工作）
         python -m src $CMD_ARGS
 
     - name: Upload logs on failure
