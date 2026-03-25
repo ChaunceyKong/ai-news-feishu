@@ -73,10 +73,7 @@ jobs:
         LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
         LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
         LARK_RECEIVER_ID: ${{ secrets.LARK_RECEIVER_ID }}
-        # 设置Python路径
-        PYTHONPATH: ${{ github.workspace }}/src
       run: |
-        cd src
         # 构建命令行参数
         CMD_ARGS="run"
         if [ "${{ github.event.inputs.dry-run }}" = "true" ]; then
@@ -85,8 +82,8 @@ jobs:
         if [ -n "${{ github.event.inputs.message-type }}" ]; then
           CMD_ARGS="$CMD_ARGS --message-type ${{ github.event.inputs.message-type }}"
         fi
-        # 运行新闻推送
-        python main.py $CMD_ARGS
+        # 运行新闻推送（作为模块运行，确保相对导入正常工作）
+        python -m src $CMD_ARGS
 
     - name: Upload logs on failure
       if: failure()

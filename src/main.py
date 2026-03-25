@@ -8,13 +8,13 @@ import sys
 import logging
 from typing import Optional
 
-from config import get_config
-from rss.fetcher import RSSFetcher
-from rss.models import RSSSource
-from lark.client import LarkClient
-from content_processor import ContentProcessor
-from utils.logger import get_logger
-from storage.database import get_storage
+from .config import get_config
+from .rss.fetcher import RSSFetcher
+from .rss.models import RSSSource
+from .lark.client import LarkClient
+from .content_processor import ContentProcessor
+from .utils.logger import get_logger
+from .storage.database import get_storage
 
 logger = get_logger()
 
