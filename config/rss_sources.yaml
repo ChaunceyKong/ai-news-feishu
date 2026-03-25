@@ -1,0 +1,72 @@
+# RSS源定义
+# 支持多种AI资讯来源
+
+sources:
+  # 英文AI资讯
+  - name: "Google AI Blog"
+    url: "https://ai.googleblog.com/feeds/posts/default"
+    category: "AI"
+    enabled: true
+    max_articles: 10
+    language: "en"
+    description: "Google AI官方博客"
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss/"
+    category: "AI"
+    enabled: true
+    max_articles: 5
+    language: "en"
+    description: "OpenAI官方博客"
+
+  - name: "MIT Technology Review AI"
+    url: "https://www.technologyreview.com/topic/artificial-intelligence/feed/"
+    category: "AI"
+    enabled: true
+    max_articles: 10
+    language: "en"
+    description: "MIT科技评论AI板块"
+
+  # 中文AI资讯
+  - name: "机器之心"
+    url: "https://www.jiqizhixin.com/rss"
+    category: "AI"
+    enabled: true
+    max_articles: 15
+    language: "zh"
+    description: "机器之心 - 人工智能垂直媒体"
+
+  - name: "AI科技大本营"
+    url: "https://blog.csdn.net/dQCFKyQDXYm3F8rB0/article/rss"
+    category: "AI"
+    enabled: false  # 默认禁用，需要确认实际RSS地址
+    max_articles: 10
+    language: "zh"
+    description: "AI科技大本营"
+
+  # 其他科技资讯
+  - name: "Hacker News AI"
+    url: "https://news.ycombinator.com/rss?q=AI"
+    category: "Tech"
+    enabled: false
+    max_articles: 10
+    language: "en"
+    description: "Hacker News AI相关"
+
+# 分类定义
+categories:
+  AI:
+    name: "人工智能"
+    priority: 1
+    enabled: true
+
+  Tech:
+    name: "科技"
+    priority: 2
+    enabled: true
+
+# 全局设置
+global:
+  default_max_articles: 10
+  default_timeout: 10
+  user_agent: "AI-News-Feishu-Bot/1.0"

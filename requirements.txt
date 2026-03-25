@@ -1,0 +1,11 @@
+feedparser==6.0.10
+requests==2.31.0
+lark-oapi==1.2.0
+PyYAML==6.0
+python-dotenv==1.0.0
+python-dateutil==2.8.2
+
+# Development dependencies
+pytest==7.4.0
+black==23.11.0
+flake8==6.1.0
